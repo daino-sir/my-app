@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { View, Text, } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -12,6 +12,7 @@ import TransactionsScreen from '../Screens/Home/TransactionsScreen';
 import GroupsScreen from '../Screens/Home/GroupsScreen';
 import SettingsScreen from '../Screens/Home/SettingsScreen';
 import { theme } from '../assets/style/colors';
+import { Ionicons, Entypo , Feather} from '@expo/vector-icons';
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator();
