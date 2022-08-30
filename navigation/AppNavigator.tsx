@@ -1,19 +1,27 @@
 import React from 'react';
+import { View, Text, } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import VerificationOTP from '../Screens/Auth/Verification/VerificationOTP';
 import LoginScreen from '../Screens/Auth/Login';
 import HomeScreen from '../Screens/HomeScreen';
 import { StatusBar } from 'expo-status-bar';
+import { globalStyles } from '../assets/style/globalStyles';
+import TransactionsScreen from '../Screens/Home/TransactionsScreen';
+import GroupsScreen from '../Screens/Home/GroupsScreen';
+import SettingsScreen from '../Screens/Home/SettingsScreen';
+import { theme } from '../assets/style/colors';
 
 const Stack = createStackNavigator()
+const Tab = createBottomTabNavigator();
 
 export function AuthStackNavigator() {
   return (
     <NavigationContainer>
       <StatusBar style="auto" />
-      <Stack.Navigator>
-        <Stack.Screen name='LoginScreen' component={LoginScreen} options={{ headerShown: false}}/>
+      <Stack.Navigator initialRouteName='LoginScreen'>
+        <Stack.Screen name='LoginScreen' component={LoginScreen} options={{ headerShown: true}}/>
         <Stack.Screen name='VerificationOTP' component={VerificationOTP} options={{ headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
@@ -35,7 +43,7 @@ export function HomeStackNavigator(){
 export default function BottomStackNavigator() {
   return (
     <>
-    <View style={sharedStyles.statusbar}/>
+    <View style={globalStyles.statusbar}/>
       <Tab.Navigator screenOptions={({route}) => ({
         tabBarIcon:({ focused, color, size}) =>{
             let iconName;
@@ -70,3 +78,4 @@ export default function BottomStackNavigator() {
     </>
   );
 }
+

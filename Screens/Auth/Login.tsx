@@ -3,7 +3,7 @@ import React from 'react'
 
 const LoginScreen = () => {
   return (
-    <View>
+    <View style={{justifyContent:'center', alignItems:'center'}}>
       <Text>Login Screens</Text>
     </View>
   )
